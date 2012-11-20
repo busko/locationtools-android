@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2012 Busko Trust
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:gravity="center"
+        android:text="@string/mainmenu_title"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:gravity="center"
+        android:text="@string/mainmenu_byline"/>
+
+    <Button android:id="@+id/button_mainmenu_recordroute"
+            android:layout_marginTop="20dip"
+            android:layout_width="200dip"
+            android:layout_height="75dip"
+            android:text="@string/mainmenu_button_recordroute"/>
+
+    <Button android:id="@+id/button_mainmenu_markstop"
+            android:layout_marginTop="20dip"
+            android:layout_width="200dip"
+            android:layout_height="75dip"
+            android:enabled="false"
+            android:text="@string/mainmenu_button_markstop"/>
+
+    <Button android:id="@+id/button_mainmenu_upload"
+            android:layout_marginTop="20dip"
+            android:layout_width="200dip"
+            android:layout_height="75dip"
+            android:enabled="false"
+            android:text="@string/mainmenu_button_upload"/>
+
+    <Button android:id="@+id/button_mainmenu_exit"
+            android:layout_marginTop="20dip"
+            android:layout_width="200dip"
+            android:layout_height="75dip"
+            android:text="@string/mainmenu_button_exit"/>
+</LinearLayout>

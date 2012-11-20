@@ -1,0 +1,37 @@
+<resources>
+<!--
+    Copyright (c) 2012 Busko Trust
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not
+    use this file except in compliance with the License. You may obtain a copy of
+    the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations under
+    the License.
+-->
+    <string name="app_name">Route Plotter</string>
+
+    <string name="username">Username</string>
+
+    <string name="mainmenu_title">Busko</string>
+    <string name="mainmenu_byline">Improving public transport\none bus at a time</string>
+
+    <string name="mainmenu_button_recordroute">Record Route</string>
+    <string name="mainmenu_button_markstop">Mark Stop</string>
+    <string name="mainmenu_button_upload">No Routes to Upload</string>
+    <string name="mainmenu_button_uploadFormat">Upload %1$d Route(s)</string>
+    <string name="mainmenu_button_uploadOffline">Off Line</string>
+    <string name="mainmenu_button_exit">Exit</string>
+
+    <string name="recordroute_instruction1">Enter the details of the route to record</string>
+    <string name="recordroute_instruction2">Hit the \'Start Recording\' button\nwhile you are waiting at the bus stop</string>
+
+    <string name="recordroute_button_startrecording">Start Recording</string>
+    <string name="recordroute_routeNumber_hint">Enter Route Number...</string>
+    <string name="recordroute_routeDescription_hint">Enter Route Description...</string>
+</resources>
