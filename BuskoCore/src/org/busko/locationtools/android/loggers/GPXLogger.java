@@ -100,7 +100,7 @@ public enum GPXLogger implements Logger
 
     private void writeFooter() throws IOException
     {
-        FileWriter fw = new FileWriter(gpxFile);
+        FileWriter fw = new FileWriter(gpxFile, true);
         fw.write("</trkseg>");
         fw.write("</trk>");
         fw.write("</gpx>");
