@@ -17,8 +17,8 @@
 <resources>
     <string name="stopTracking">Stop Tracking</string>
     <string name="startTracking">Start Tracking</string>
-    <string name="app_name">Bus Stop Locator</string>
-    <string name="settings_screen_name">Bus Stop Locator Settings</string>
+    <string name="app_name">Busko Locator</string>
+    <string name="settings_screen_name">Busko Locator Settings</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="could_not_write_to_file">Could not write to file </string>

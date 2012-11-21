@@ -54,7 +54,8 @@ public class MainMenuActivity extends BaseMenuActivity {
 
         Button uploadButton = (Button) findViewById(R.id.button_mainmenu_upload);
         File logDirectory = CSVLogger.getLogDirectory();
-        if (logDirectory.list().length > 0) {
+        String[] list = logDirectory.list();
+        if (list != null && list.length > 0) {
             String strFormat = getResources().getString(R.string.mainmenu_button_uploadFormat);
             uploadButton.setText(String.format(strFormat, logDirectory.list().length));
             if (isOnline()) {

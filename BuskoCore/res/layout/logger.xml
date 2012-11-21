@@ -21,18 +21,18 @@
               android:orientation="vertical" >
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="50dip"
+        android:layout_height="25dip"
         android:gravity="center"
         android:text="@string/logger_title"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
     <TextView
         android:id="@+id/text_logger_route"
         android:layout_width="fill_parent"
-        android:layout_height="50dip"
+        android:layout_height="25dip"
         android:gravity="center"/>
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="50dip"
+        android:layout_height="40dip"
         android:gravity="center"
         android:text="@string/logger_instruction1"/>
 
@@ -46,15 +46,14 @@
     <TextView
         android:id="@+id/location"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="40dip"
         android:text="@string/mark_counter"
         android:gravity="center"/>
 
     <Button
         android:id="@+id/ExitButton"
         android:layout_width="200dip"
-        android:layout_height="75dip"
-        android:layout_marginBottom="25dip"
+        android:layout_height="60dip"
+        android:layout_marginBottom="10dip"
         android:text="@string/Exit"/>
 </LinearLayout>

@@ -15,6 +15,6 @@
     the License.
 -->
 <resources>
-    <string name="app_name">Bus Tracker</string>
+    <string name="app_name">Busko Tracker</string>
     <string name="updateRate">Update Rate (seconds)</string>
 </resources>
