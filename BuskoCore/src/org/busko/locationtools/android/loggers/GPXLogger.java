@@ -44,7 +44,7 @@ public enum GPXLogger implements Logger
     @Override
     public void write(Location loc, String description) throws Exception {
       if (gpxFile == null) {
-          gpxFile = new File(getLogDirectory(),Session.getCurrentFileName()+".gpx");
+          gpxFile = new File(getLogDirectory(),Session.getCurrentFileName()+".xml");
       }
       if(!gpxFile.exists())
       {

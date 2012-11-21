@@ -309,8 +309,9 @@ public class GpsLoggingService extends Service
 
         notifyStatusBar();
         startGpsManager();
-        logging = true;
 
+        resetCurrentFileName();
+        logging = true;
     }
 
     /**
@@ -461,12 +462,11 @@ public class GpsLoggingService extends Service
      */
     private void resetCurrentFileName()
     {
-
         Utilities.LogDebug("GpsLoggingService.ResetCurrentFileName called");
 
         String newFileName;
         // 20100114.gpx
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
         newFileName = sdf.format(new Date());
         Session.setCurrentFileName(newFileName);
     }

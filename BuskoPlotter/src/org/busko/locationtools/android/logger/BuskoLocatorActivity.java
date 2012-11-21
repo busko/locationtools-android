@@ -183,7 +183,7 @@ public class BuskoLocatorActivity extends BaseActivity implements IGpsLoggerServ
     @Override
     protected void addLoggers()
     {
-        getLoggingService().addLogger(CSVLogger.INSTANCE);
+//        getLoggingService().addLogger(CSVLogger.INSTANCE);
         getLoggingService().addLogger(GPXLogger.INSTANCE);
     }
 }
