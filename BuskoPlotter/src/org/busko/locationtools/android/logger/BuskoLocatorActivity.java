@@ -31,6 +31,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import org.busko.locationtools.android.loggers.GPXLogger;
 
 public class BuskoLocatorActivity extends BaseActivity implements IGpsLoggerServiceClient
 {
@@ -183,5 +184,6 @@ public class BuskoLocatorActivity extends BaseActivity implements IGpsLoggerServ
     protected void addLoggers()
     {
         getLoggingService().addLogger(CSVLogger.INSTANCE);
+        getLoggingService().addLogger(GPXLogger.INSTANCE);
     }
 }

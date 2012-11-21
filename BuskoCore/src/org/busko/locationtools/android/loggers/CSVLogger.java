@@ -57,6 +57,10 @@ public enum CSVLogger implements Logger
       fw.close();
     }
 
+    @Override
+    public void close() throws Exception {
+    }
+
 
     private String constructData(Location loc, String description)
     {
@@ -93,6 +97,8 @@ public enum CSVLogger implements Logger
     {
         note = description;
     }
+
+
 
     public static File getLogDirectory()
     {

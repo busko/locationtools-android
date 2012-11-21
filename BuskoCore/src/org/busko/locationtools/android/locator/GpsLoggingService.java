@@ -320,6 +320,14 @@ public class GpsLoggingService extends Service
     {
         logging = false;
 
+        for (Logger logger : loggers) {
+            try {
+                logger.close();
+            } catch (Exception e) {
+                Utilities.LogError("stopLogging", e);
+            }
+        }
+
         Utilities.LogDebug("GpsLoggingService.StopLogging called");
         if(wl != null)
         {

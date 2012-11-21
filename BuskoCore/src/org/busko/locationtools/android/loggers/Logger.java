@@ -25,4 +25,6 @@ public interface Logger
 
     void write(Location loc, String description) throws Exception;
 
+    void close() throws Exception;
+
 }

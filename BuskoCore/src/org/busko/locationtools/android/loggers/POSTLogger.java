@@ -80,5 +80,8 @@ public enum POSTLogger implements Logger
         write(loc);
     }
 
+    @Override
+    public void close() throws Exception {
+    }
 
 }
