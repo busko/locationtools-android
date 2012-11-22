@@ -37,6 +37,7 @@ public class Session extends Application
 
     private static String routeNumber;
     private static String routeDescription;
+    private static int stopNumber;
 
 	// ---------------------------------------------------
 
@@ -232,7 +233,7 @@ public class Session extends Application
 		return isBound;
 	}
 
-	public static boolean shoulAllowDescription()
+	public static boolean getAllowDescription()
 	{
 		return allowDescription;
 	}
@@ -256,6 +257,14 @@ public class Session extends Application
 
     public static void setRouteDescription(String routeDescription) {
         Session.routeDescription = routeDescription;
+    }
+
+    public static int getStopNumber() {
+        return stopNumber;
+    }
+
+    public static void setStopNumber(int stopNumber) {
+        Session.stopNumber = stopNumber;
     }
 
     public static String getBusID()

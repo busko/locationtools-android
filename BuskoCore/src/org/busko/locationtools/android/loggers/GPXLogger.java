@@ -29,6 +29,7 @@ public enum GPXLogger implements Logger
     INSTANCE;
     private File gpxFile;
     private String note;
+    private boolean writeLocation;
 
     GPXLogger()
     {
@@ -49,17 +50,21 @@ public enum GPXLogger implements Logger
       if(!gpxFile.exists())
       {
           writeHeader();
+          writeLocation = true;
       }
-      FileWriter fw = new FileWriter(gpxFile,true);
-      String data = constructData(loc, description);
-      fw.write(data);
-      fw.write('\n');
-      fw.flush();
-      fw.close();
+      if (writeLocation) {
+        FileWriter fw = new FileWriter(gpxFile,true);
+        String data = constructData(loc, description);
+        fw.write(data);
+        fw.write('\n');
+        fw.flush();
+        fw.close();
+      }
     }
 
     @Override
     public void close() throws Exception {
+        writeLocation = false;
         writeFooter();
     }
 

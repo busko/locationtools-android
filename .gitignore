@@ -1,9 +1,6 @@
 gen
-
 out
-
 .idea
-
 *.iml
 *.ipr
 *.iws

@@ -14,7 +14,6 @@ package org.busko.locationtools.android.locator;
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -42,12 +41,8 @@ public class GpsLoggingService extends Service
     /**
      * General all purpose handler used for updating the UI from threads.
      */
-    public final Handler                   handler  = new Handler();
     private final IBinder                  mBinder  = new GpsLoggingBinder();
     private static IGpsLoggerServiceClient mainServiceClient;
-
-    public static final String             LOCATION = "location";
-    public static final String             ADDRESS  = "address";
 
     // ---------------------------------------------------
     // Helpers and managers
@@ -60,102 +55,13 @@ public class GpsLoggingService extends Service
 	private WakeLock	wl;
 
     // ---------------------------------------------------
-    /**
-     * Provides a connection to the GPS Logging Service
-     */
-    private class GeocoderHandler extends Handler
-    {
-
-        @Override
-        public void handleMessage(Message message)
-        {
-            Address address = null;
-            Location location = null;
-            switch (message.what)
-            {
-            case 1:
-                Bundle bundle = message.getData();
-                address = bundle.getParcelable(ADDRESS);
-                location = bundle.getParcelable(LOCATION);
-                noteAddress(location, address);
-
-                break;
-            default:
-            }
-        }
-    }
-
-    public static void getAddressFromLocation(final Location location, final Context context, final Handler handler)
-    {
-        Thread thread = new Thread()
-        {
-            @Override
-            public void run()
-            {
-                Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-                Address address = null;
-                try
-                {
-                    List<Address> list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    if (list != null && list.size() > 0)
-                    {
-                        address = list.get(0);
-                    }
-                }
-                catch (IOException e)
-                {
-                    Utilities.LogError("Impossible to connect to Geocoder", e);
-                }
-                finally
-                {
-                    Message msg = Message.obtain();
-                    msg.setTarget(handler);
-                    msg.what = 1;
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable(ADDRESS, address);
-                    bundle.putParcelable(LOCATION, location);
-                    msg.setData(bundle);
-                    msg.sendToTarget();
-                }
-            }
-        };
-        thread.start();
-    }
-
-    public void noteAddress(Location location, Address address)
-    {
-        String desc = "";
-        String logged = "\"";
-        if (address != null)
-        {
-            int numLines = address.getMaxAddressLineIndex();
-            for (int i = 0; i < numLines; i++)
-            {
-                if (i > 0)
-                {
-//                    desc += ",\n";
-                    desc += ",";
-                    logged += ",";
-                }
-                desc += address.getAddressLine(i);
-                logged += address.getAddressLine(i);
-            }
-            logged += "\"";
-        }
-        else
-        {
-            desc = "No Address Found";
-            logged = desc;
-        }
-
-        WriteToFile(location, desc);
-
-        mainServiceClient.displayLocationDesc(desc);
-    }
 
     public void markIt()
     {
-        getAddressFromLocation(lastLocation, this, new GeocoderHandler());
+        String desc = "STOP" + Session.getStopNumber() + "_" + Session.getStopNumber();
+        Session.setStopNumber(Session.getStopNumber() + 1);
+        WriteToFile(lastLocation, desc);
+        mainServiceClient.displayLocationDesc(desc);
     }
 
     @Override
@@ -243,17 +149,13 @@ public class GpsLoggingService extends Service
                 if (startRightNow)
                 {
                     Utilities.LogInfo("Auto starting logging");
-
                     startLogging();
                 }
 
                 if (alarmWentOff)
                 {
-
                     Utilities.LogDebug("setEmailReadyToBeSent = true");
-
                 }
-
             }
         }
         else
@@ -469,6 +371,7 @@ public class GpsLoggingService extends Service
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
         newFileName = sdf.format(new Date());
         Session.setCurrentFileName(newFileName);
+        Session.setStopNumber(1);
     }
 
     /**
